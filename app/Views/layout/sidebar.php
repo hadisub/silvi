@@ -15,25 +15,30 @@
                             </a>
                             <div class="collapse show" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Baru</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Disetujui</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Ditolak</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Dipending</a>
+                                    <a class="nav-link" href="<?= base_url('vidconbaru') ?>">Baru</a>
+                                    <a class="nav-link" href="<?= base_url('vidcondisetujui') ?>">Disetujui</a>
+                                    <a class="nav-link" href="<?= base_url('vidconditolak') ?>">Ditolak</a>
+                                    <a class="nav-link" href="<?= base_url('vidcondipending') ?>">Dipending</a>
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Event</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="<?= base_url('kalender') ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
                                 Kalender Vidcon
                             </a>
                             <div class="sb-sidenav-menu-heading">Laporan</div>
-                            <a class="nav-link" href="charts.html">
+                            <a class="nav-link" href="<?= base_url('lapperbulan') ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Rekap Per Bulan
                             </a>
-                            <a class="nav-link" href="tables.html">
+                            <a class="nav-link" href="<?= base_url('lappertahun') ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Rekap Per Tahun
+                            </a>
+                            <div class="sb-sidenav-menu-heading"></div>
+                            <a class="nav-link" data-toggle="modal" href="#" data-target="#modalabout">
+                                <div class="sb-nav-link-icon"><i class="fas fa-info"></i></div>
+                                Tentang SILVI
                             </a>
                         </div>
                     </div>
