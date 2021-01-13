@@ -66,7 +66,7 @@
                                                 </div>
                                             </div>
                                             <!-- tombol -->
-                                            <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block mb-3" href="login.html">Buat Pengajuan</a></div>
+                                            <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block mb-3" href="<?= base_url('pengajuan/kirimpengajuan') ?>">Buat Pengajuan</a></div>
                                         </form>
                                     </div>
                                 </div>

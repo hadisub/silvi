@@ -15,10 +15,10 @@
                             </a>
                             <div class="collapse show" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="<?= base_url('vidconbaru') ?>">Baru</a>
-                                    <a class="nav-link" href="<?= base_url('vidcondisetujui') ?>">Disetujui</a>
-                                    <a class="nav-link" href="<?= base_url('vidconditolak') ?>">Ditolak</a>
-                                    <a class="nav-link" href="<?= base_url('vidcondipending') ?>">Dipending</a>
+                                    <a class="nav-link" href="<?= base_url('vidconbaru') ?>"><i class="fas fa-comment-medical mr-3"></i>Baru</a>
+                                    <a class="nav-link" href="<?= base_url('vidcondisetujui') ?>"><i class="fas fa-comment mr-3"></i>Disetujui</a>
+                                    <a class="nav-link" href="<?= base_url('vidconditolak') ?>"><i class="fas fa-comment-slash mr-3"></i>Ditolak</a>
+                                    <a class="nav-link" href="<?= base_url('vidcondipending') ?>"><i class="fas fa-comment-dots mr-3"></i>Dipending</a>
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Event</div>
