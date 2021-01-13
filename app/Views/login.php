@@ -12,7 +12,7 @@
                                         <h5 class="text-center font-weight-light">Sistem Informasi Laporan</h5><h5 class="text-center font-weight-light"> Video Conference</h5>
                                     </div>
                                     <div class="card-body">
-                                        <form>
+                                        <form autocomplete="off"> 
                                             <div class="form-group">
                                                 <label class="small mb-1" for="username">Nama Pengguna:</label>
                                                 <input class="form-control py-4" id="username" name="username" type="text" placeholder="Masukkan nama pengguna" />
@@ -36,4 +36,4 @@
                     </div>
                 </main>
             </div>
-<?= $this->include('layout/footer') ?>
+<?= $this->include('layout/footerloginregister') ?>
