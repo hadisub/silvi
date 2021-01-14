@@ -12,19 +12,24 @@
                                         <h5 class="text-center font-weight-light">Sistem Informasi Laporan</h5><h5 class="text-center font-weight-light"> Video Conference</h5>
                                     </div>
                                     <div class="card-body">
-                                        <form autocomplete="off"> 
+                                        <form role="form" autocomplete="off" action ="<?=base_url('user/login')?>" method ="POST">
+                                        <?php if(!empty(session()->getFlashData('gagal'))){ 
+                                        echo '<div class="alert alert-danger" role="alert">';
+                                        echo session()->getFlashData('gagal');
+                                        echo '</div>'; }
+                                        ?>
                                             <div class="form-group">
-                                                <label class="small mb-1" for="username">Nama Pengguna:</label>
-                                                <input class="form-control py-4" id="username" name="username" type="text" placeholder="Masukkan nama pengguna" />
+                                                <label class="small mb-1" for="nama">Nama Pengguna:</label>
+                                                <input class="form-control py-4" id="nama" name="nama" type="text" placeholder="Masukkan nama pengguna" />
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="password">Kata Sandi:</label>
-                                                <input class="form-control py-4" id="password" type="password" placeholder="Masukkan kata sandi" />
+                                                <input class="form-control py-4" id="password" name="password" type="password" placeholder="Masukkan kata sandi" />
                                             </div>
                                             <div class="form-group">
                                             </div>
                                             <div class="form-group d-flex align-items-center justify-content-center">
-                                                <a class="btn btn-primary btn-block" href="index.html">Masuk</a>
+                                                <button class="btn btn-primary btn-block" type="submit">Masuk</button>
                                             </div>
                                         </form>
                                     </div>
