@@ -7,6 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title><?= $judul ?></title>
+        <link rel="shortcut icon" href="../assets/img/silvi.ico" type="image/x-icon" />
         <link href="../assets/css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>

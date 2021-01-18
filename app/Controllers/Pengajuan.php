@@ -1,17 +1,24 @@
 <?php 
 namespace App\Controllers;
+use App\Models\Pengajuan_Model;
 
 class Pengajuan extends BaseController{
+
+    protected $pengajuan_model;
+    public function __construct(){
+        $this->pengajuan_model = new Pengajuan_Model();
+    }
+
     public function index(){
         $data = [
-            'judul'         => 'Form Pengajuan Banrtuan Video Conference',
+            'judul'         => 'Form Pengajuan Bantuan Video Conference',
             'validation'    => \Config\Services::validation()
             ];
         return view('pengajuan', $data);
     }
 
-    public function tambahpengajuan(){
-       //validasi
+    public function kirimpengajuan(){
+        //validasi
        if(!$this->validate([
            'nomorsurat' => [
                 'rules' => 'required|max_length[45]',
@@ -60,24 +67,37 @@ class Pengajuan extends BaseController{
                         'max_length'=>'Nama contact person melebihi batas 255 karakter']   
            ],
            'nomorcp' => [
-            'rules' => 'required|max_length[12]|numeric|regex_match[^0]',
+            'rules' => 'required|max_length[255]|numeric|regex_match[^0]',
             'errors' => ['required'=> 'Nomor HP contact person harus diisi',
                         'max_length'=>'Nomor HP melebihi batas 12 karakter',
                         'numeric'=>'Nomor HP harus berupa angka',
-                        'regex_match'=>'Nomor HP tidak valid'],
-            'nomorcp' => [
-            'rules' => 'required|max_length[12]|numeric|regex_match[^0]',
-            'errors' => ['required'=> 'Nomor HP contact person harus diisi',
-                        'max_length'=>'Nomor HP melebihi batas 12 karakter',
-                        'numeric'=>'Nomor HP harus berupa angka',
-                        'regex_match'=>'Nomor HP tidak valid'],   
+                        'regex_match'=>'Nomor HP tidak valid']   
            ],
+           'filesurat' => [
+            'rules' => 'uploaded[filesurat]|max_size[filesurat,2048]|is_image[filesurat,image/jpg,image/jpeg,image/png]',
+            'errors' => ['uploaded'=> 'File surat harus diunggah',
+                        'max_size'=>'File melebihi batas maksimum unggah (2 Mb)',
+                        'is_image'=>'File surat harus berupa gambar']   
+           ]
        ])){
-           $validation= \Config\Services::validation();
-            return redirect()->to('/pengajuan')->withInput()->with('validation',$validation);
+            return redirect()->to('/pengajuan')->withInput();
        }
        else{
-            return view('notification/pengajuanterkirim');
+       //jika sudah tervalidasi semua maka simpan
+       $this->pengajuan_model->save([
+           'nomorsurat'     => $this->request->getVar('nomorsurat'),
+           'namalembaga'    => $this->request->getVar('namalembaga'),
+           'perihal'        => $this->request->getVar('perihal'),
+           'tgl_vidcon'     => $this->request->getVar('tgl_vidcon'),
+           'tempat'         => $this->request->getVar('tempat'),
+           'jmlpeserta'     => $this->request->getVar('jmlpeserta'),
+           'keterangan'     => $this->request->getVar('keterangan'),
+           'kebutuhan'     => $this->request->getVar('kebutuhan'),
+           'namacp'         => $this->request->getVar('namacp'),
+           'nomorcp'        => $this->request->getVar('nomorcp'),
+           'filesurat'     => $this->request->getVar('filesurat')
+       ]);     
+       return redirect()->to('pengajuanterkirim')
        } 
     }
 

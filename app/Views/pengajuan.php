@@ -9,17 +9,17 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-7">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-bold my-4">Form Pengajuan VidCon</h3>
+                                    <div class="card-header"><h3 class="text-center font-weight-bold my-4">Form Pengajuan Bantuan VidCon</h3>
                                         <h6 class="text-center font-weight-light">Silahkan isi form berikut untuk mengajukan bantuan fasilitas video conference dari Dinas Kominfo Kabupaten Kediri</h6>
                                     </div>
                                     <div class="card-body">
-                                        <form action="<?= base_url('pengajuan/tambahpengajuan') ?>" method="POST" enctype="multipart/form-data">
-                                        <?= csrf_field(); ?>
+                                        <form action="<?= base_url('pengajuan/kirimpengajuan') ?>" method="POST" enctype="multipart/form-data">
+                                        <?= csrf_field() ?>
                                             <!-- form -->
                                             <div class="form-group">
                                                 <label class="small mb-1" for="nomorsurat">Nomor Surat:</label>
                                                 <input class="form-control <?= ($validation->hasError('nomorsurat')) ? 'is-invalid' : ''; ?>" id="nomorsurat" name="nomorsurat" type="text" placeholder="Contoh: 800/213/418.26/2021"
-                                                 value="<?= old('nomorsurat') ?>" />
+                                                 value="<?= old('nomorsurat') ?>" autofocus/>
                                                 <div class="invalid-feedback"><?= $validation->getError('nomorsurat') ?> </div>
                                             </div>
                                             <div class="form-group">
@@ -84,11 +84,11 @@
                                                 <div class="invalid-feedback"><?= $validation->getError('nomorcp') ?> </div>
                                             </div>
                                             <div class="form-group">
-                                            <label class="small mb-1" for="filesurat">Unggah Surat Resmi (dalam bentuk gambar):</label>
+                                            <p class="small mb-1">Unggah Surat Resmi (dalam bentuk gambar):</p>
                                                 <div class="custom-file">
-                                                <input type="file" class="custom-file-input <?= ($validation->hasError('filesurat')) ? 'is-invalid' : ''; ?>" id="filesurat" name="filesurat" />
-                                                <label class="custom-file-label" for="customFile"><?= old('filesurat') ?></label>
-                                                <div class="invalid-feedback"><?= $validation->getError('filesurat') ?> </div>
+                                                <input type="file" class="custom-file-input <?= ($validation->hasError('filesurat')) ? 'is-invalid' : ''; ?>" id="filesurat" name="filesurat" onchange="ValidateSize(this)" />
+                                                <div class="invalid-feedback"><?= $validation->getError('filesurat') ?></div>
+                                                <label class="custom-file-label" for="filesurat" id="labelfilesurat" name="labelfilesurat"><?= old('filesurat') ?></label>
                                                 </div>
                                             </div>
                                             <!-- tombol -->
