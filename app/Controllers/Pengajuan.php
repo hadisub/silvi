@@ -74,30 +74,39 @@ class Pengajuan extends BaseController{
                         'regex_match'=>'Nomor HP tidak valid']   
            ],
            'filesurat' => [
-            'rules' => 'uploaded[filesurat]|max_size[filesurat,2048]|is_image[filesurat,image/jpg,image/jpeg,image/png]',
+            'rules' => 'uploaded[filesurat]|max_size[filesurat,2048]|is_image[filesurat]|mime_in[filesurat,image/jpg,image/jpeg,image/png]',
             'errors' => ['uploaded'=> 'File surat harus diunggah',
                         'max_size'=>'File melebihi batas maksimum unggah (2 Mb)',
-                        'is_image'=>'File surat harus berupa gambar']   
+                        'is_image'=>'File surat harus berupa gambar',
+                        'mime_in'=>'File surat harus berupa gambar']   
            ]
        ])){
             return redirect()->to('/pengajuan')->withInput();
        }
        else{
+
+        //ambil file surat
+        $file_surat = $this->request->getFile('filesurat');
+        //bikin nama file surat random
+        $namasurat = $file_surat->getRandomName();
+        $file_surat->move('assets/img', $namasurat);
+
        //jika sudah tervalidasi semua maka simpan
        $this->pengajuan_model->save([
            'nomorsurat'     => $this->request->getVar('nomorsurat'),
            'namalembaga'    => $this->request->getVar('namalembaga'),
            'perihal'        => $this->request->getVar('perihal'),
-           'tgl_vidcon'     => $this->request->getVar('tgl_vidcon'),
+           'tglvidcon'      => $this->request->getVar('tglvidcon'),
            'tempat'         => $this->request->getVar('tempat'),
            'jmlpeserta'     => $this->request->getVar('jmlpeserta'),
            'keterangan'     => $this->request->getVar('keterangan'),
-           'kebutuhan'     => $this->request->getVar('kebutuhan'),
+           'kebutuhan'      => $this->request->getVar('kebutuhan'),
            'namacp'         => $this->request->getVar('namacp'),
            'nomorcp'        => $this->request->getVar('nomorcp'),
-           'filesurat'     => $this->request->getVar('filesurat')
+           'filesurat'      => $namasurat,
+           'status_vidcon'  => 'new'
        ]);     
-       return redirect()->to('pengajuanterkirim')
+       return redirect()->to('pengajuanterkirim');
        } 
     }
 

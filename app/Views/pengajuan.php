@@ -13,7 +13,7 @@
                                         <h6 class="text-center font-weight-light">Silahkan isi form berikut untuk mengajukan bantuan fasilitas video conference dari Dinas Kominfo Kabupaten Kediri</h6>
                                     </div>
                                     <div class="card-body">
-                                        <form action="<?= base_url('pengajuan/kirimpengajuan') ?>" method="POST" enctype="multipart/form-data">
+                                        <form id="formpengajuan" action="<?= base_url('pengajuan/kirimpengajuan') ?>" method="POST" enctype="multipart/form-data">
                                         <?= csrf_field() ?>
                                             <!-- form -->
                                             <div class="form-group">
@@ -88,11 +88,11 @@
                                                 <div class="custom-file">
                                                 <input type="file" class="custom-file-input <?= ($validation->hasError('filesurat')) ? 'is-invalid' : ''; ?>" id="filesurat" name="filesurat" onchange="ValidateSize(this)" />
                                                 <div class="invalid-feedback"><?= $validation->getError('filesurat') ?></div>
-                                                <label class="custom-file-label" for="filesurat" id="labelfilesurat" name="labelfilesurat"><?= old('filesurat') ?></label>
+                                                <label class="custom-file-label" for="filesurat" id="labelfilesurat" name="labelfilesurat">Pilih surat..</label>
                                                 </div>
                                             </div>
                                             <!-- tombol -->
-                                            <div class="form-group mt-4 mb-0"><button class="btn btn-primary btn-block mb-3" type="submit">Buat Pengajuan</button></div>
+                                            <div class="form-group mt-4 mb-0"><button class="btn btn-primary btn-block mb-3" type="button" data-toggle="modal" data-target="#modalkonfirmasi">Kirim Pengajuan</button></div>
                                         </form>
                                     </div>
                                 </div>
