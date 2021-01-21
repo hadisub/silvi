@@ -22,7 +22,7 @@
                                                 <th>Perihal</th>
                                                 <th>Tempat</th>
                                                 <th>Tgl. Vidcon</th>
-                                                <th class="type-action">Aksi</th>
+                                                <th class="type-action" width="12%">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>

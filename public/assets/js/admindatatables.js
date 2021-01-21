@@ -23,7 +23,7 @@ if($("#tblpengajuanbaru".length)){
     }, {
       targets: ['type-action'],
       render: function(data, type, full, meta) {
-        return '<button class="btn btn-primary btn-sm">s'+full.id_vidcon+'</button>';
+        return '<button class="btn btn-primary btn-sm">'+full.id_vidcon+'</button>';
       }
     }]  
   }); 
@@ -53,7 +53,7 @@ if($("#tblpengajuandisetujui".length)){
     }, {
       targets: ['type-action'],
       render: function(data, type, full, meta) {
-        return '<button class="btn btn-primary btn-sm">s'+full.id_vidcon+'</button>';
+        return '<button class="btn btn-primary btn-sm">'+full.id_vidcon+'</button>';
       }
     }]  
   }); 
@@ -83,7 +83,7 @@ if($("#tblpengajuandipending".length)){
     }, {
       targets: ['type-action'],
       render: function(data, type, full, meta) {
-        return '<button class="btn btn-primary btn-sm">s'+full.id_vidcon+'</button>';
+        return '<button class="btn btn-primary btn-sm">'+full.id_vidcon+'</button>';
       }
     }]  
   }); 
@@ -113,7 +113,9 @@ if($("#tblpengajuanditolak".length)){
     }, {
       targets: ['type-action'],
       render: function(data, type, full, meta) {
-        return '<a class="btn btn-primary btn-sm"><i class="fas fa-table">'+full.id_vidcon+'</i></a>';
+        return '<a class="btn btn-primary btn-sm"><i class="fas fa-eye"></i>'+full.id_vidcon+'</a>'+
+        '<a class="btn btn-warning btn-sm"><i class="fas fa-hourglass"></i>'+full.id_vidcon+'</a>'+
+        '<a class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>'+full.id_vidcon+'</a>';
       }
     }]  
   }); 
