@@ -6,6 +6,9 @@ use App\Models\User_Model;
 Class User extends BaseController{
     public function index(){
         $data['judul'] ='Login SILVI';
+        if(isset($_SESSION['logged_in'])){
+        return redirect()->to('beranda');
+        }
         return view('login', $data);
     }
 

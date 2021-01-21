@@ -84,7 +84,7 @@
                                                 <div class="invalid-feedback"><?= $validation->getError('nomorcp') ?> </div>
                                             </div>
                                             <div class="form-group">
-                                            <p class="small mb-1">Unggah Surat Resmi (dalam bentuk gambar):</p>
+                                            <p class="small mb-1">Unggah Surat Resmi (dalam bentuk gambar jpg/jpeg/png maksimal 2 MB):</p>
                                                 <div class="custom-file">
                                                 <input type="file" class="custom-file-input <?= ($validation->hasError('filesurat')) ? 'is-invalid' : ''; ?>" id="filesurat" name="filesurat" onchange="ValidateSize(this)" />
                                                 <div class="invalid-feedback"><?= $validation->getError('filesurat') ?></div>

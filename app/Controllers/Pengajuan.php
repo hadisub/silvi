@@ -3,12 +3,10 @@ namespace App\Controllers;
 use App\Models\Pengajuan_Model;
 
 class Pengajuan extends BaseController{
-
-    protected $pengajuan_model;
-    public function __construct(){
-        $this->pengajuan_model = new Pengajuan_Model();
-    }
-
+  protected $pengajuan_model;
+  public function __construct(){
+    $this->pengajuan_model = new Pengajuan_Model();
+  }
     public function index(){
         $data = [
             'judul'         => 'Form Pengajuan Bantuan Video Conference',
@@ -105,13 +103,20 @@ class Pengajuan extends BaseController{
            'nomorcp'        => $this->request->getVar('nomorcp'),
            'filesurat'      => $namasurat,
            'status_vidcon'  => 'new'
-       ]);     
+       ]);
+       session()->set('terkirim',TRUE);     
        return redirect()->to('pengajuanterkirim');
        } 
     }
 
     public function pengajuanterkirim(){
+      if(isset($_SESSION['terkirim'])){
+        unset($_SESSION['terkirim']);
         return view('notification/pengajuanterkirim');
+      }
+      else{
+        return redirect()->to('/pengajuan');
+      }
     }
 }
 ?>

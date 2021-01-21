@@ -12,37 +12,30 @@
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="tblpengajuanbaru" width="100%" cellspacing="0">
+                                    <table class="table table-bordered" id="tblpengajuandisetujui" width="100%" cellspacing="0">
                                         <thead class="text-center">
                                             <tr>
-                                                <th>
-                                                No.
-                                                </th>
-                                                <th>
-                                                No. Surat
-                                                </th>
-                                                <th>
-                                                Asal Surat
-                                                </th>
-                                                <th>
-                                                Perihal
-                                                </th>
-                                                <th>
-                                                Tempat
-                                                </th>
-                                                <th>
-                                                Tgl. Vidcon
-                                                </th>
-                                                <th>
-                                                Aksi
-                                                </th>
+                                                <th>No.</th>
+                                                <th>No. Surat</th>
+                                                <th>Asal Surat</th>
+                                                <th>Perihal</th>
+                                                <th>Tempat</th>
+                                                <th>Tgl. Vidcon</th>
+                                                <th class="type-action">Aksi</th>
                                             </tr>
                                         </thead>
+                                        <tbody>
+                                            
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </main>
+
+                <script type="text/javascript">
+                    console.log('aa');
+                </script>
 
 <?= $this->include('layout/footeradmin') ?>
