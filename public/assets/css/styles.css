@@ -10247,3 +10247,17 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
+
+/*button bulat */
+.btn-circle {
+  width: 40px;
+  height: 40px;
+  padding: 6px 0;
+   -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.428571429;
+
+}

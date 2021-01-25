@@ -9,7 +9,18 @@ class VidconDitolak extends BaseController{
 	}
 
     public function index(){
-        $data['judul']='Daftar Pengajuan Bantuan Vidcon Ditolak';
+
+        //cari halaman berapa di pagination
+        $halaman_sekarang = $this->request->getVar('page_tblpengajuanditolak') ? $this->request->getVar('page_tblpengajuanditolak') : 1;
+        $data = [
+          'judul'           =>  'Daftar Pengajuan Bantuan Vidcon Ditolak',
+        //kirim data tabel pengajuan ditolak
+          'vidcon_ditolak'  =>   $this->pengajuan_model->where('status_vidcon','rejected')->orderBy('updated_at','asc')->paginate(10,'tblpengajuanditolak'),
+          'pager'           =>   $this->pengajuan_model->where('status_vidcon','rejected')->orderBy('updated_at','asc')->pager,
+          'halaman_sekarang'     => $halaman_sekarang
+
+        ];
+
         if(!isset($_SESSION['logged_in'])){
           return redirect()->to('/');
         }
@@ -19,18 +30,6 @@ class VidconDitolak extends BaseController{
     }
 
     public function tabelpengditolak(){
-    $daftar = $this->pengajuan_model->where('status_vidcon','rejected')->orderBy('updated_at','asc')->findAll();
-
-    $no = 1;
-    foreach($daftar as $index => &$key){
-      $key['no'] = $index + $no;
-      $key['tglvidcon'] = date("d-m-Y", strtotime($key['tglvidcon']));
-    }
-    $output = array(
-      "draw" => $_GET['draw'],
-      "data" => $daftar
-    );
-    echo json_encode($output);
     }
 }
 ?>
