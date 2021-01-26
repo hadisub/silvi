@@ -2,7 +2,7 @@
     "use strict";
 
     // tambahkan class active di menu sidebar yang diklik
-    var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+    var path = window.location.origin+window.location.pathname; // because the 'href' property of the DOM element is the absolute path
         $("#layoutSidenav_nav .sb-sidenav a.nav-link").each(function() {
             if (this.href === path) {
                 $(this).addClass("active");

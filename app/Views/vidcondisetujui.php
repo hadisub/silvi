@@ -15,7 +15,7 @@
                                     <div class="col-sm-3">
                                         <form action="" method="get">
                                             <div class="input-group mb-3">
-                                                <input type="text" class="form-control" placeholder="Masukkan kata kunci di sini..." name="katakunci" id="katakunci" value="<?= isset($_GET['katakunci']) ? $_GET['katakunci'] : '' ?>">
+                                                <input type="text" class="form-control" placeholder="Masukkan kata kunci di sini..." name="katakunci" id="katakunci" value="<?= isset($_GET['katakunci']) ? $_GET['katakunci'] : '' ?>" autocomplete="off">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-outline-secondary" type="submit" name="submitkatakunci"><i class="fas fa-search"></i></button>
                                                 </div>

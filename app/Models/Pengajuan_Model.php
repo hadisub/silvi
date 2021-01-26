@@ -9,9 +9,12 @@ class Pengajuan_Model extends Model{
     protected $allowedFields = ['nomorsurat','namalembaga','perihal','tglvidcon','tempat','jmlpeserta',
     'keterangan','kebutuhan','namacp','nomorcp','filesurat','status_vidcon'];
 
-    public function caritabelditolak($katakunci){
-        return $this->table('vidcon')->like('namalembaga',$katakunci)
-        ->orLike('perihal',$katakunci)->orLike('keterangan',$katakunci)->orLike('tempat',$katakunci);
+    public function caritabel($katakunci){
+        return $this->table('vidcon')->
+        groupStart()->
+        like('namalembaga',$katakunci)
+        ->orLike('perihal',$katakunci)->orLike('keterangan',$katakunci)->orLike('tempat',$katakunci)->
+        groupEnd();
     }
 }
 

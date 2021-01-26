@@ -15,7 +15,7 @@ class VidconDitolak extends BaseController{
     //ambil kata kunci dari pencarian
     $katakunci = $this->request->getVar('katakunci');
     if($katakunci){
-      $vidcon_ditolak = $this->pengajuan_model->caritabelditolak($katakunci)->where('status_vidcon','rejected');
+      $vidcon_ditolak = $this->pengajuan_model->caritabel($katakunci)->where('status_vidcon','rejected')->orderBy('tglvidcon','asc');
     } else{
       $vidcon_ditolak = $this->pengajuan_model->where('status_vidcon','rejected')->orderBy('tglvidcon','asc');
     }
@@ -24,7 +24,7 @@ class VidconDitolak extends BaseController{
       'judul'           =>  'Daftar Pengajuan Bantuan Vidcon Ditolak',
     //kirim data tabel pengajuan ditolak
       'vidcon_ditolak'  =>   $vidcon_ditolak->paginate(10,'tblpengajuanditolak'),
-      'pager'           =>   $vidcon_ditolak->orderBy('tglvidcon','asc')->pager,
+      'pager'           =>   $vidcon_ditolak->pager,
       'halaman_sekarang'     => $halaman_sekarang
 
     ];
@@ -36,9 +36,6 @@ class VidconDitolak extends BaseController{
         else{
           return view('vidconditolak',$data);
         }
-    }
-
-    public function tabelpengditolak(){
     }
 }
 ?>

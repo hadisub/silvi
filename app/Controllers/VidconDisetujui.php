@@ -16,16 +16,16 @@ class VidconDisetujui extends BaseController{
       //ambil kata kunci dari pencarian
       $katakunci = $this->request->getVar('katakunci');
       if($katakunci){
-        $vidcon_disetujui = $this->pengajuan_model->caritabel($katakunci);
+        $vidcon_disetujui = $this->pengajuan_model->caritabel($katakunci)->where('status_vidcon','approved')->orderBy('tglvidcon','asc');
       } else{
-        $vidcon_disetujui = $this->pengajuan_model;
+        $vidcon_disetujui = $this->pengajuan_model->where('status_vidcon','approved')->orderBy('tglvidcon','asc');
       }
 
       $data = [
         'judul'           =>  'Daftar Pengajuan Bantuan Vidcon Disetujui',
-      //kirim data tabel pengajuan ditolak
-        'vidcon_disetujui'  =>   $vidcon_disetujui->where('status_vidcon','approved')->orderBy('updated_at','asc')->paginate(10,'tblpengajuandisetujui'),
-        'pager'           =>   $vidcon_disetujui->where('status_vidcon','approved')->orderBy('updated_at','asc')->pager,
+      //kirim data tabel pengajuan disetujui
+        'vidcon_disetujui'  =>   $vidcon_disetujui->paginate(10,'tblpengajuandisetujui'),
+        'pager'           =>   $vidcon_disetujui->pager,
         'halaman_sekarang'     => $halaman_sekarang
 
       ];
@@ -35,9 +35,6 @@ class VidconDisetujui extends BaseController{
       else{
         return view('vidcondisetujui',$data);
       }
-    }
-
-    public function tabelpengdisetujui(){
     }
 }
 ?>
