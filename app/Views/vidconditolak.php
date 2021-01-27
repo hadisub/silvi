@@ -48,7 +48,8 @@
                                                 <td style="white-space: nowrap;"><?= $vd['tglvidcon'] = date("d-m-Y", strtotime($vd['tglvidcon'])) ?></td>
                                                 <td style="white-space: nowrap;"><a class="btn btn-primary btn-circle center-block" data-tooltip="tooltip" data-toggle="modal" data-target="#modaldetailpengajuan" data-placement="top" title="Lihat rincian"><i class="fas fa-eye"></i></a>
                                                     <a class="btn btn-warning btn-circle" data-tooltip="tooltip" data-toggle="modal" data-placement="top" data-target="#modalpendingpengajuan" title="Pending pengajuan ini"><i class="fas fa-hourglass"></i></a>
-                                                    <a class="btn btn-danger btn-circle" data-tooltip="tooltip" data-toggle="modal" data-placement="top" data-target="#modalhapuspengajuan" title="Hapus pengajuan ini"><i class="fas fa-trash"></i></a></td>
+                                                    <a class="btn btn-danger btn-circle btn-hapus" data-tooltip="tooltip" data-toggle="modal" data-placement="top" data-target="#modalhapuspengajuan" title="Hapus pengajuan ini" data-url="<?=site_url("pengajuan/hapuspengajuan/".$vd['id_vidcon']."/".'vidconditolak') ?>" data-table="/vidconditolak" id="btn-hapus" name="btn-hapus"><i class="fas fa-trash"></i></a>
+                                                </td>
                                             </tr>
                                             <?php endforeach; ?>        
                                         </tbody>

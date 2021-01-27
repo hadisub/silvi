@@ -118,5 +118,18 @@ class Pengajuan extends BaseController{
         return redirect()->to('/pengajuan');
       }
     }
+
+    public function hapuspengajuan($id,$jenistabel){
+      return redirect()->to('/'.$jenistabel);
+    //   if(!empty($id)){
+    //     $this->pengajuan_model->delete($id);
+    //     session()->setFlashData('sukses', 'Pengajuan berhasil dihapus');
+    //     return redirect()->to($jenistabel);
+    //   }
+    //   else{
+    //     session()->setFlashData('gagal', 'Pengajuan gagal terhapus. Silahkan coba kembali');
+    //     return redirect()->to($jenistabel);
+    //   }
+    }
 }
 ?>

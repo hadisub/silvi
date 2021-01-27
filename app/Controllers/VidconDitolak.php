@@ -28,7 +28,6 @@ class VidconDitolak extends BaseController{
       'halaman_sekarang'     => $halaman_sekarang
 
     ];
-    //dd($this->db->getLastQuery());
 
         if(!isset($_SESSION['logged_in'])){
           return redirect()->to('/');

@@ -12,7 +12,7 @@
                                         <h5 class="text-center font-weight-light">Sistem Informasi Laporan</h5><h5 class="text-center font-weight-light"> Video Conference</h5>
                                     </div>
                                     <div class="card-body">
-                                        <form role="form" autocomplete="off" action ="<?=base_url('user/login')?>" method ="POST">
+                                        <form role="form" autocomplete="off" action ="<?=site_url('user/login')?>" method ="POST">
                                         <?= csrf_field() ?>
                                         <?php if(!empty(session()->getFlashData('gagal'))){ 
                                         echo '<div class="alert alert-danger" role="alert">';

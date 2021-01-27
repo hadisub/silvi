@@ -73,7 +73,9 @@
 
 <!-- Modal hapus pengajuan -->
 <div class="modal fade" id="modalhapuspengajuan" name="modalhapuspengajuan" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog" style="max-width: 35%;" role="document">
+    <form role="form" action="#" method="post">
+       <?= csrf_field() ?>
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Hapus pengajuan ini?</h5>
@@ -83,13 +85,31 @@
       </div>
       <div class="modal-body">
         Apakah anda yakin untuk menghapus pengajuan vidcon berikut:
-        <p class="text-center mt-2">PERINGATAN: <br>Pengajuan yang telah dihapus tidak dapat dikembalikan lagi.</p>
+        <table>
+          <tr>
+            <td class="font-weight-bold">Lembaga</td>
+            <td>:</td>
+            <td>Dishub</td>
+          </tr>
+          <tr>
+            <td class="font-weight-bold">Perihal</td>
+            <td>:</td>
+            <td>Permohonan Bantuan Penyiapan Fasilitasi Video Conference</td>
+          </tr>
+          <tr>
+            <td class="font-weight-bold">Tanggal</td>
+            <td>:</td>
+            <td>27 Januari 2021</td>
+          </tr>
+        </table>
+        <p class="text-center mt-4">***PERINGATAN***<br>Pengajuan yang telah dihapus tidak dapat dikembalikan lagi.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <button type="button" class="btn btn-danger">Hapus</button>
+        <button type="submit" class="btn btn-danger">Hapus</button>
       </div>
     </div>
+  </form>
   </div>
 </div>
 
@@ -98,6 +118,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="../assets/js/sidebar.js"></script>
+        <script src="../assets/js/pengajuan.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script>
           //aktivasi tooltip
