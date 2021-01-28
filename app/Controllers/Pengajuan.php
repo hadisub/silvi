@@ -119,17 +119,29 @@ class Pengajuan extends BaseController{
       }
     }
 
+    public function pendingpengajuan($id,$jenistabel){
+      $data = ['status_vidcon' => 'pending'];
+      $pending = $this->pengajuan_model->update($id, $data);
+      if($pending){
+        session()->setFlashData('sukses', 'Pengajuan berhasil dipending');
+        return redirect()->to('/'.$jenistabel);
+      }
+      else{
+        session()->setFlashData('gagal', 'Pengajuan gagal dipending. Silahkan coba kembali');
+        return redirect()->to('/'.$jenistabel);
+      }
+    }
+
     public function hapuspengajuan($id,$jenistabel){
-      return redirect()->to('/'.$jenistabel);
-    //   if(!empty($id)){
-    //     $this->pengajuan_model->delete($id);
-    //     session()->setFlashData('sukses', 'Pengajuan berhasil dihapus');
-    //     return redirect()->to($jenistabel);
-    //   }
-    //   else{
-    //     session()->setFlashData('gagal', 'Pengajuan gagal terhapus. Silahkan coba kembali');
-    //     return redirect()->to($jenistabel);
-    //   }
+      $hapus=$this->pengajuan_model->delete($id);
+      if($hapus){
+        session()->setFlashData('sukses', 'Pengajuan berhasil dihapus');
+        return redirect()->to('/'.$jenistabel);
+      }
+      else{
+        session()->setFlashData('gagal', 'Pengajuan gagal terhapus. Silahkan coba kembali');
+        return redirect()->to('/'.$jenistabel);
+      }
     }
 }
 ?>

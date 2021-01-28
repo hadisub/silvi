@@ -10,6 +10,24 @@
                             <li class="breadcrumb-item">Daftar Pengajuan Bantuan Vidcon yang Ditolak</li>
                         </ol>
                         <div class="card mb-4">
+                            <!-- alert jika perintah sukses -->
+                            <?php if(session()->getFlashData('sukses')!==NULL){ ?>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <?php echo(session()->getFlashData('sukses')); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <?php } ?>
+                            <!-- alert jika perintah gagal -->
+                            <?php if(session()->getFlashData('gagal')!==NULL){ ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <?php echo(session()->getFlashData('gagal')); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <?php } ?>
                             <div class="card-body">
                                 <div class="row justify-content-end">
                                     <div class="col-sm-3">
@@ -46,9 +64,24 @@
                                                 <td><?= $vd['perihal'] ?></td>
                                                 <td><?= $vd['tempat'] ?></td>
                                                 <td style="white-space: nowrap;"><?= $vd['tglvidcon'] = date("d-m-Y", strtotime($vd['tglvidcon'])) ?></td>
-                                                <td style="white-space: nowrap;"><a class="btn btn-primary btn-circle center-block" data-tooltip="tooltip" data-toggle="modal" data-target="#modaldetailpengajuan" data-placement="top" title="Lihat rincian"><i class="fas fa-eye"></i></a>
-                                                    <a class="btn btn-warning btn-circle" data-tooltip="tooltip" data-toggle="modal" data-placement="top" data-target="#modalpendingpengajuan" title="Pending pengajuan ini"><i class="fas fa-hourglass"></i></a>
-                                                    <a class="btn btn-danger btn-circle btn-hapus" data-tooltip="tooltip" data-toggle="modal" data-placement="top" data-target="#modalhapuspengajuan" title="Hapus pengajuan ini" data-url="<?=site_url("pengajuan/hapuspengajuan/".$vd['id_vidcon']."/".'vidconditolak') ?>" data-table="/vidconditolak" id="btn-hapus" name="btn-hapus"><i class="fas fa-trash"></i></a>
+                                                <td style="white-space: nowrap;"><a class="btn btn-primary btn-circle btn-detail" data-tooltip="tooltip" data-toggle="modal" data-target="#modaldetailpengajuan" data-placement="top" title="Lihat rincian" 
+                                                    data-nomordetail="<?=$vd['nomorsurat'] ?>" 
+                                                    data-lembagadetail="<?=$vd['namalembaga'] ?>" 
+                                                    data-perihaldetail="<?=$vd['perihal'] ?>" 
+                                                    data-tanggaldetail="<?=$vd['tglvidcon'] ?>" 
+                                                    data-tempatdetail="<?=$vd['tempat'] ?>" 
+                                                    data-jumlahdetail="<?=$vd['jmlpeserta'] ?>" 
+                                                    data-keterangandetail="<?=$vd['keterangan'] ?>" 
+                                                    data-kebutuhandetail="<?=$vd['kebutuhan'] ?>" 
+                                                    data-cpdetail="<?=$vd['namacp'] ?>" 
+                                                    data-hpcpdetail="<?=$vd['nomorcp'] ?>" 
+                                                    data-suratdetail="<?=$vd['filesurat'] ?>"><i class="fas fa-eye"></i></a>
+                                                    <a class="btn btn-warning btn-circle btn-pending" data-tooltip="tooltip" data-toggle="modal" data-placement="top" data-target="#modalpendingpengajuan" title="Pending pengajuan ini" data-url="<?=site_url("pengajuan/pendingpengajuan/".$vd['id_vidcon']."/".'vidconditolak') ?>" data-nama="<?=$vd['namalembaga'] ?>" 
+                                                        data-perihal="<?=$vd['perihal'] ?>" 
+                                                        data-tanggal="<?=$vd['tglvidcon'] ?>" id="btn-pending" name="btn-pending"><i class="fas fa-hourglass"></i></a>
+                                                    <a class="btn btn-danger btn-circle btn-hapus" data-tooltip="tooltip" data-toggle="modal" data-placement="top" data-target="#modalhapuspengajuan" title="Hapus pengajuan ini" data-url="<?=site_url("pengajuan/hapuspengajuan/".$vd['id_vidcon']."/".'vidconditolak') ?>" data-nama="<?=$vd['namalembaga'] ?>" 
+                                                    data-perihal="<?=$vd['perihal'] ?>" 
+                                                    data-tanggal="<?=$vd['tglvidcon'] ?>" id="btn-hapus" name="btn-hapus"><i class="fas fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                             <?php endforeach; ?>        

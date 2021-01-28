@@ -53,7 +53,7 @@ CREATE TABLE `vidcon` (
   `updated_at` datetime NOT NULL,
   `status_vidcon` enum('new','approved','rejected','pending','deleted') NOT NULL,
   PRIMARY KEY (`id_vidcon`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
 /*Data for the table `vidcon` */
 
@@ -61,7 +61,7 @@ insert  into `vidcon`(`id_vidcon`,`nomorsurat`,`namalembaga`,`perihal`,`tglvidco
 (6,'800/213/418.25/2021','Dinas Kesehatan','Permohonan Bantuan Vidcon','2021-01-21 00:00:00','Aula Dinas Kesehatan',150,'Pelantikan kepala SKPD baru','1 kamera, 2 laptop','Andri','082203304566','1611029652_32009e5dcec49cf51e32.jpg','2021-01-19 11:14:12','2021-01-19 11:14:12','new'),
 (7,'800/213/222','Kecamatan Semen','Vidcon Pemberdayaan Petani','2021-01-21 00:00:00','Aula kecamatan',150,'Vidcon Pemberdayaan Petani','2 kamera','Yosi','089904321989','1611031101_7b21cdeb92ea099aa2ac.jpg','2021-01-19 11:38:21','2021-01-19 11:38:21','new'),
 (8,'800/214/418.25/2021','Dinas Perumahan dan Pemukiman','Vidcon Workshop Perencanaan RTH','2021-01-26 00:00:00','Aula Dinas Perkim',100,'Workshop perencanaan RTH dihadiri oleh Bupati Kediri','2 laptop','Yunus','082203304566','1611210117_f1a15680b47a7634429c.jpg','2021-01-21 13:21:57','2021-01-21 13:21:57','new'),
-(9,'800/214/418.26/2021','Dinas Perikanan','Permohonan Bantuan Vidcon','2021-01-27 00:00:00','Dinas Perikanan',50,' Workshop Budidaya Ikan Air Tawar','2 laptop, 2 kamera, 1 HDD eksternal','Abdi','082203304566','1611210436_e280c7f9e15642283980.jpg','2021-01-21 13:27:16','2021-01-21 13:27:16','rejected'),
+(9,'800/214/418.26/2021','Dinas Perikanan','Permohonan Bantuan Vidcon','2021-01-27 00:00:00','Dinas Perikanan',50,' Workshop Budidaya Ikan Air Tawar','2 laptop, 2 kamera, 1 HDD eksternal','Abdi','082203304566','1611210436_e280c7f9e15642283980.jpg','2021-01-21 13:27:16','2021-01-28 14:43:33','rejected'),
 (10,'893/529/418.50/2021','BKD','Bantuan Fasilitasi Video Conference','2021-01-22 00:00:00','Ruang Rapat BKD',150,'Kegiatan Latsat Gol. III Gelombang II angkatan 203 dan 204 Pemkab Kediri','2 laptop','Dimas','082203304566','1611211333_2671f335195084564fb9.jpg','2021-01-21 13:42:13','2021-01-21 13:42:13','rejected'),
 (11,'893/562/418.50/2021','BKD Kabupaten Kediri','Bantuan Fasilitasi Video Conference','2021-01-22 00:00:00','Ruang Rapat BKD',150,'Kegiatan Pelatihan Optimalisasi Website dan Sosial Media SKPD di lingkungan Pemkab Kediri','2 laptop','Bahrul','082203304566','1611211458_0940801591f831d24880.jpg','2021-01-21 13:44:18','2021-01-21 13:44:18','approved'),
 (12,'005/380/418.62/2021','Bakesbangpol','Permohonan Fasilitasi','2021-01-22 00:00:00','Ruang Rapat Candra Kirana',150,'Rakor Forum Kewaspadaan Dini Masyarakat','2 laptop','Yusi','082203304566','1611211573_01bee043deed22a69559.jpg','2021-01-21 13:46:13','2021-01-21 13:46:13','approved'),
@@ -85,7 +85,8 @@ insert  into `vidcon`(`id_vidcon`,`nomorsurat`,`namalembaga`,`perihal`,`tglvidco
 (30,'893/1526/418.50/2021','BKD Kabupaten Kediri','Bantuan Fasilitasi Video Conference','2021-01-27 00:00:00','Universitas Pawyatan Dhaha',200,'Penutupan Diklat Calon Kepala Sekolah','2 laptop, 1 kamera','Nuria','082203304566','1611215149_75075feef82ec26a875f.jpg','2021-01-21 14:45:49','2021-01-21 14:45:49','pending'),
 (31,'B.37/Sekrt./DWP Kab.Kdr./XII/2021','DWP Kabupaten Kediri','Permohonan Fasilitasi Zoom Meeting','2021-01-26 00:00:00','Ruang Rapat Grahadi',100,'Peringatan HUT ke-21 dan Pengukuhan Pengurus DWP Kabupaten Kediri masa bakti 2021-2024','2 laptop, 2 kamera','Banun','082203304566','1611215225_2367ffaba193ed845df8.jpg','2021-01-21 14:47:05','2021-01-21 14:47:05','pending'),
 (32,'160/02.02/02.21/UM/XII/2021','PMI Kediri','Bantuan Fasilitasi Video Conference','2021-01-28 00:00:00','Ruang Kilisuci Pemkab Kediri',150,'Musyawarah Kerja PMI Kabupaten Kediri','2 laptop, 2 kamera','Marwan','082203304566','1611215359_110deb74248b33d01b3d.jpg','2021-01-21 14:49:19','2021-01-21 14:49:19','pending'),
-(33,'800/225/418.25/2021','Dispendukcapil','Permintaan Fasilitasi Teleconference','2021-02-04 00:00:00','Ruang Rapat Grahadi',100,'Serah Terima Sekretaris Dispendukcapil baru dan lama','2 laptop, 1 kamera','Jenni','082203304566','1611221301_1ea0ec13a99f1d57e781.jpg','2021-01-21 16:28:21','2021-01-21 16:28:21','new');
+(33,'800/225/418.25/2021','Dispendukcapil','Permintaan Fasilitasi Teleconference','2021-02-04 00:00:00','Ruang Rapat Grahadi',100,'Serah Terima Sekretaris Dispendukcapil baru dan lama','2 laptop, 1 kamera','Jenni','082203304566','1611221301_1ea0ec13a99f1d57e781.jpg','2021-01-21 16:28:21','2021-01-21 16:28:21','new'),
+(43,'AAA','AAA','AAA','2021-01-30 00:00:00','AAA',150,'AAA','AAA','AA','082203304566','1611827139_a73669f006c5572d16c2.jpg','2021-01-28 16:45:39','2021-01-28 16:46:26','pending');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
