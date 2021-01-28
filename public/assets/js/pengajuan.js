@@ -9,6 +9,8 @@ var keterangandetail 	= $(this).data('keterangandetail');
 var kebutuhandetail 	= $(this).data('kebutuhandetail');
 var cpdetail 			= $(this).data('cpdetail');
 var hpcpdetail 			= $(this).data('hpcpdetail');
+var createddetail 		= $(this).data('createddetail');
+var updateddetail 		= $(this).data('updateddetail');
 var suratdetail			= $(this).data('suratdetail');
 
 $('#modaldetailpengajuan').find('#nomordetail').text(nomordetail);
@@ -21,6 +23,8 @@ $('#modaldetailpengajuan').find('#keterangandetail').text(keterangandetail);
 $('#modaldetailpengajuan').find('#kebutuhandetail').text(kebutuhandetail);
 $('#modaldetailpengajuan').find('#cpdetail').text(cpdetail);
 $('#modaldetailpengajuan').find('#hpcpdetail').text(hpcpdetail);
+$('#modaldetailpengajuan').find('#createddetail').text(createddetail);
+$('#modaldetailpengajuan').find('#updateddetail').text(updateddetail);
 $('#modaldetailpengajuan').find('#suratdetail').html('<img src="../assets/img/'+suratdetail+' " width="100%">');
 
 });

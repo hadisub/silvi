@@ -74,7 +74,9 @@
                                                     data-keterangandetail="<?=$vd['keterangan'] ?>" 
                                                     data-kebutuhandetail="<?=$vd['kebutuhan'] ?>" 
                                                     data-cpdetail="<?=$vd['namacp'] ?>" 
-                                                    data-hpcpdetail="<?=$vd['nomorcp'] ?>" 
+                                                    data-hpcpdetail="<?=$vd['nomorcp'] ?>"
+                                                    data-createddetail="<?=$vd['created_at'] ?>"
+                                                    data-updateddetail="<?=$vd['updated_at'] ?>" 
                                                     data-suratdetail="<?=$vd['filesurat'] ?>"><i class="fas fa-eye"></i></a>
                                                     <a class="btn btn-warning btn-circle btn-pending" data-tooltip="tooltip" data-toggle="modal" data-placement="top" data-target="#modalpendingpengajuan" title="Pending pengajuan ini" data-url="<?=site_url("pengajuan/pendingpengajuan/".$vd['id_vidcon']."/".'vidconditolak') ?>" data-nama="<?=$vd['namalembaga'] ?>" 
                                                         data-perihal="<?=$vd['perihal'] ?>" 

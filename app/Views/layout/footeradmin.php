@@ -92,9 +92,19 @@
             <td  id="hpcpdetail"></td>
           </tr>
           <tr>
+            <td class="font-weight-bold">Waktu Diajukan</td>
+            <td>:</td>
+            <td  id="createddetail"></td>
+          </tr>
+          <tr>
+            <td class="font-weight-bold">Waktu Status Terakhir Diubah</td>
+            <td>:</td>
+            <td  id="updateddetail"></td>
+          </tr>
+          <tr>
             <td class="font-weight-bold">Surat</td>
             <td>:</td>
-            <td  id="suratdetail"><img src="../assets/img/1611029652_32009e5dcec49cf51e32.jpg" width="100%"></td>
+            <td  id="suratdetail"></td>
           </tr>
         </table>
       </div>

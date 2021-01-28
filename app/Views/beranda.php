@@ -13,7 +13,7 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body text-center">
                                     <h3><i class="fa fa-comment-medical fa-2x"></i></h3>
-                                    <h4>2 Pengajuan Baru</h4>
+                                    <h4>2</br> Pengajuan</br>Baru</h4>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="<?= base_url("vidconbaru") ?>">Lihat selengkapnya</a>
@@ -25,7 +25,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body text-center">
                                     <h3><i class="fa fa-comment fa-2x"></i></h3>
-                                    <h4>0 Pengajuan Disetujui</h4>
+                                    <h4>0</br>Pengajuan</br>Disetujui</h4>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="<?= base_url("vidcondisetujui") ?>">Lihat selengkapnya</a>
@@ -37,7 +37,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body text-center">
                                     <h3><i class="fa fa-comment-slash fa-2x"></i></h3>
-                                    <h4>0 Pengajuan Dipending</h4>
+                                    <h4>0</br>Pengajuan</br>Dipending</h4>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="<?= base_url("vidcondipending") ?>">Lihat selengkapnya</a>
@@ -49,7 +49,7 @@
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body text-center">
                                     <h3><i class="fa fa-comment-dots fa-2x"></i></h3>
-                                    <h4>0 Pengajuan Ditolak</h4>
+                                    <h4>0</br>Pengajuan</br>Ditolak</h4>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="<?= base_url("vidconditolak") ?>">Lihat selengkapnya</a>
