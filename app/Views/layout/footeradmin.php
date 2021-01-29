@@ -115,6 +115,47 @@
   </div>
 </div>
 
+<!-- Modal approve pengajuan -->
+<div class="modal fade" id="modalapprovepengajuan" name="modalapprovepengajuan" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" style="max-width: 35%;" role="document">
+    <form role="form" action="#" method="post">
+       <?= csrf_field() ?>
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="col-12 modal-title text-center">Setujui pengajuan ini?
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></h4>
+        </button>
+      </div>
+      <div class="modal-body">
+        Anda akan menyetujui pengajuan vidcon berikut ini:
+        <table class="table table-borderless mt-3">
+          <tr>
+            <td class="font-weight-bold">Lembaga</td>
+            <td>:</td>
+            <td  id="lembagadiapprove"></td>
+          </tr>
+          <tr>
+            <td class="font-weight-bold">Perihal</td>
+            <td>:</td>
+            <td id="perihaldiapprove"></td>
+          </tr>
+          <tr>
+            <td class="font-weight-bold">Tanggal</td>
+            <td>:</td>
+            <td id="tanggaldiapprove"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-success">Setujui</button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+
 <!-- Modal pending pengajuan -->
 <div class="modal fade" id="modalpendingpengajuan" name="modalpendingpengajuan" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" style="max-width: 35%;" role="document">
@@ -150,6 +191,47 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
         <button type="submit" class="btn btn-warning">Pending</button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+
+<!-- Modal tolak pengajuan -->
+<div class="modal fade" id="modaltolakpengajuan" name="modaltolakpengajuan" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" style="max-width: 35%;" role="document">
+    <form role="form" action="#" method="post">
+       <?= csrf_field() ?>
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="col-12 modal-title text-center">Tolak pengajuan ini?
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></h4>
+        </button>
+      </div>
+      <div class="modal-body">
+        Anda akan menolak pengajuan vidcon berikut ini:
+        <table class="table table-borderless mt-3">
+          <tr>
+            <td class="font-weight-bold">Lembaga</td>
+            <td>:</td>
+            <td  id="lembagaditolak"></td>
+          </tr>
+          <tr>
+            <td class="font-weight-bold">Perihal</td>
+            <td>:</td>
+            <td id="perihalditolak"></td>
+          </tr>
+          <tr>
+            <td class="font-weight-bold">Tanggal</td>
+            <td>:</td>
+            <td id="tanggalditolak"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-danger">Tolak</button>
       </div>
     </div>
   </form>

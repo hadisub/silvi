@@ -29,15 +29,15 @@ $('#modaldetailpengajuan').find('#suratdetail').html('<img src="../assets/img/'+
 
 });
 
-$(document).on('click',".btn-hapus",function(e){
-var lembagadihapus = $(this).data('nama');
-var perihaldihapus = $(this).data('perihal');
-var tanggaldihapus = $(this).data('tanggal');
+$(document).on('click',".btn-approve",function(e){
+var lembagadiapprove = $(this).data('nama');
+var perihaldiapprove = $(this).data('perihal');
+var tanggaldiapprove = $(this).data('tanggal');
 
-$('#modalhapuspengajuan').find('#lembagadihapus').text(lembagadihapus);
-$('#modalhapuspengajuan').find('#perihaldihapus').text(perihaldihapus);
-$('#modalhapuspengajuan').find('#tanggaldihapus').text(tanggaldihapus);
-$('#modalhapuspengajuan').find('form').prop('action',$(this).data('url'));
+$('#modalapprovepengajuan').find('#lembagadiapprove').text(lembagadiapprove);
+$('#modalapprovepengajuan').find('#perihaldiapprove').text(perihaldiapprove);
+$('#modalapprovepengajuan').find('#tanggaldiapprove').text(tanggaldiapprove);
+$('#modalapprovepengajuan').find('form').prop('action',$(this).data('url'));
 });
 
 $(document).on('click',".btn-pending",function(e){
@@ -49,4 +49,26 @@ $('#modalpendingpengajuan').find('#lembagadipending').text(lembagadipending);
 $('#modalpendingpengajuan').find('#perihaldipending').text(perihaldipending);
 $('#modalpendingpengajuan').find('#tanggaldipending').text(tanggaldipending);
 $('#modalpendingpengajuan').find('form').prop('action',$(this).data('url'));
+});
+
+$(document).on('click',".btn-tolak",function(e){
+var lembagaditolak = $(this).data('nama');
+var perihalditolak = $(this).data('perihal');
+var tanggalditolak = $(this).data('tanggal');
+
+$('#modaltolakpengajuan').find('#lembagaditolak').text(lembagaditolak);
+$('#modaltolakpengajuan').find('#perihalditolak').text(perihalditolak);
+$('#modaltolakpengajuan').find('#tanggalditolak').text(tanggalditolak);
+$('#modaltolakpengajuan').find('form').prop('action',$(this).data('url'));
+});
+
+$(document).on('click',".btn-hapus",function(e){
+var lembagadihapus = $(this).data('nama');
+var perihaldihapus = $(this).data('perihal');
+var tanggaldihapus = $(this).data('tanggal');
+
+$('#modalhapuspengajuan').find('#lembagadihapus').text(lembagadihapus);
+$('#modalhapuspengajuan').find('#perihaldihapus').text(perihaldihapus);
+$('#modalhapuspengajuan').find('#tanggaldihapus').text(tanggaldihapus);
+$('#modalhapuspengajuan').find('form').prop('action',$(this).data('url'));
 });

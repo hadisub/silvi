@@ -74,7 +74,9 @@
                                                     data-keterangandetail="<?=$vd['keterangan'] ?>" 
                                                     data-kebutuhandetail="<?=$vd['kebutuhan'] ?>" 
                                                     data-cpdetail="<?=$vd['namacp'] ?>" 
-                                                    data-hpcpdetail="<?=$vd['nomorcp'] ?>" 
+                                                    data-hpcpdetail="<?=$vd['nomorcp'] ?>"
+                                                    data-createddetail="Tanggal <?=date('d-m-Y', strtotime($vd['created_at']))?> Jam <?=date('H:i', strtotime($vd['created_at'])) ?>"
+                                                    data-updateddetail="Tanggal <?=date('d-m-Y', strtotime($vd['updated_at']))?> Jam <?=date('H:i', strtotime($vd['updated_at'])) ?>" 
                                                     data-suratdetail="<?=$vd['filesurat'] ?>"><i class="fas fa-eye"></i></a>
                                                     <a class="btn btn-warning btn-circle btn-pending" data-tooltip="tooltip" data-toggle="modal" data-placement="top" data-target="#modalpendingpengajuan" title="Pending pengajuan ini" data-url="<?=site_url("pengajuan/pendingpengajuan/".$vd['id_vidcon']."/".'vidcondisetujui') ?>" data-nama="<?=$vd['namalembaga'] ?>" 
                                                         data-perihal="<?=$vd['perihal'] ?>" 

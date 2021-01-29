@@ -119,11 +119,24 @@ class Pengajuan extends BaseController{
       }
     }
 
+    public function approvepengajuan($id,$jenistabel){
+      $data = ['status_vidcon' => 'approved'];
+      $approved = $this->pengajuan_model->update($id, $data);
+      if($approved){
+        session()->setFlashData('sukses', 'Pengajuan telah disetujui');
+        return redirect()->to('/'.$jenistabel);
+      }
+      else{
+        session()->setFlashData('gagal', 'Pengajuan gagal disetujui. Silahkan coba kembali');
+        return redirect()->to('/'.$jenistabel);
+      }
+    }
+
     public function pendingpengajuan($id,$jenistabel){
       $data = ['status_vidcon' => 'pending'];
       $pending = $this->pengajuan_model->update($id, $data);
       if($pending){
-        session()->setFlashData('sukses', 'Pengajuan berhasil dipending');
+        session()->setFlashData('sukses', 'Pengajuan telah dipending');
         return redirect()->to('/'.$jenistabel);
       }
       else{
@@ -132,10 +145,23 @@ class Pengajuan extends BaseController{
       }
     }
 
+      public function tolakpengajuan($id,$jenistabel){
+      $data = ['status_vidcon' => 'rejected'];
+      $rejected = $this->pengajuan_model->update($id, $data);
+      if($rejected){
+        session()->setFlashData('sukses', 'Pengajuan telah ditolak');
+        return redirect()->to('/'.$jenistabel);
+      }
+      else{
+        session()->setFlashData('gagal', 'Pengajuan gagal ditolak. Silahkan coba kembali');
+        return redirect()->to('/'.$jenistabel);
+      }
+    }
+
     public function hapuspengajuan($id,$jenistabel){
       $hapus=$this->pengajuan_model->delete($id);
       if($hapus){
-        session()->setFlashData('sukses', 'Pengajuan berhasil dihapus');
+        session()->setFlashData('sukses', 'Pengajuan telah dihapus');
         return redirect()->to('/'.$jenistabel);
       }
       else{
