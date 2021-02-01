@@ -27,13 +27,9 @@
                                 Kalender Vidcon
                             </a>
                             <div class="sb-sidenav-menu-heading">Laporan</div>
-                            <a class="nav-link" href="<?= base_url('lapperbulan') ?>">
+                            <a class="nav-link" href="<?= base_url('laporan') ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Rekap Per Bulan
-                            </a>
-                            <a class="nav-link" href="<?= base_url('lappertahun') ?>">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Rekap Per Tahun
+                                Cetak Laporan
                             </a>
                             <div class="sb-sidenav-menu-heading"></div>
                             <a class="nav-link" data-toggle="modal" href="#" data-target="#modalabout">

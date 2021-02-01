@@ -10261,3 +10261,11 @@ body {
   line-height: 1.428571429;
 
 }
+
+/*background*/
+.background{
+ background-image: url("../img/background.jpg");
+ object-fit: cover;
+ background-repeat: no-repeat;
+ background-position:center;
+}

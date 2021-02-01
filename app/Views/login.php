@@ -1,6 +1,5 @@
 <?= $this->include('layout/headerloginregister') ?>
 
-<body class="bg-primary">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -12,7 +11,7 @@
                                         <h5 class="text-center font-weight-light">Sistem Informasi Laporan</h5><h5 class="text-center font-weight-light"> Video Conference</h5>
                                     </div>
                                     <div class="card-body">
-                                        <form role="form" autocomplete="off" action ="<?=site_url('user/login')?>" method ="POST">
+                                        <form role="form" action ="<?=site_url('user/login')?>" method ="POST">
                                         <?= csrf_field() ?>
                                         <?php if(!empty(session()->getFlashData('gagal'))){ 
                                         echo '<div class="alert alert-danger" role="alert">';
@@ -25,7 +24,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="password">Kata Sandi:</label>
-                                                <input class="form-control py-4" id="password" name="password" type="password" placeholder="Masukkan kata sandi" />
+                                                <input class="form-control py-4" id="password" name="password" type="password" autocomplete="on" placeholder="Masukkan kata sandi" />
                                             </div>
                                             <div class="form-group">
                                             </div>

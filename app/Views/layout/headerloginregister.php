@@ -15,4 +15,4 @@
         <script src="../assets/js/validatesize.js"></script>
 
     </head>
-    <body class="bg-primary">
+    <body class="background">
