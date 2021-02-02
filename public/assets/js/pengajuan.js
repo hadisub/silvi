@@ -72,3 +72,13 @@ $('#modalhapuspengajuan').find('#perihaldihapus').text(perihaldihapus);
 $('#modalhapuspengajuan').find('#tanggaldihapus').text(tanggaldihapus);
 $('#modalhapuspengajuan').find('form').prop('action',$(this).data('url'));
 });
+
+$(document).on('click',"#caritanggal",function(e){
+//cek jika tanggal awal lebih besar dari tanggal akhir
+var tanggalawal = $("#tanggalawal").val();
+var tanggalakhir = $("#tanggalakhir").val();
+if(tanggalawal>tanggalakhir){
+	alert("Tanggal awal tidak boleh lebih besar dari tanggal akhir");
+	return false;
+}
+});
