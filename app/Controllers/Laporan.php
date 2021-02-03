@@ -5,23 +5,24 @@ use Dompdf\Dompdf;
 
 class Laporan extends BaseController{
 	protected $pengajuan_model;
+  protected $data;
+
 	public function __construct(){
 		$this->pengajuan_model = new Pengajuan_Model();
-	}
-  public function index(){
-    $halaman_sekarang = 1;
-    $data = [
+    $this->data = [
     'judul'             =>  'Rekapitulasi Permintaan Bantuan Fasilitas Video Conference',
     //kirim data tabel laporan
     'laporan'           =>  [],
     'pager'             =>   null,
-    'halaman_sekarang'  =>  $halaman_sekarang
-      ];
+    'halaman_sekarang'  =>  1];
+	}
+  public function index(){
+    $halaman_sekarang = 1;
     if(!isset($_SESSION['logged_in'])){
       return redirect()->to('/');
     }
     else{
-      return view('laporan',$data);
+      return view('laporan',$this->data);
     }
   }
 
@@ -32,19 +33,11 @@ class Laporan extends BaseController{
       $tanggalawal = $this->request->getVar('tanggalawal');
       //ambil tanggal akhir
       $tanggalakhir = $this->request->getVar('tanggalakhir');
-      $data = [
-      'judul'             =>  'Rekapitulasi Permintaan Bantuan Fasilitas Video Conference',
-      //kirim data tabel laporan
-      'laporan'           =>  [],
-      'pager'             =>  null,
-      'halaman_sekarang'  =>  $halaman_sekarang
-      ];
       //cek jika tanggal terisi
       if(!empty($tanggalawal) && !empty($tanggalakhir)){
-        $laporan = $this->pengajuan_model->where('DATE(created_at) >=', $tanggalawal)
-        ->where('DATE(created_at) <=', $tanggalakhir)->orderBy('created_at','asc');
+        $laporan = $this->pengajuan_model->cari_laporan($tanggalawal,$tanggalakhir);
 
-          $data = [
+          $this->data = [
           'judul'             =>  'Rekapitulasi Permintaan Bantuan Fasilitas Video Conference',
           //kirim data tabel laporan
           'laporan'           =>  $laporan->paginate(10,'tbllaporan'),
@@ -53,15 +46,32 @@ class Laporan extends BaseController{
           ];
           session()->remove('kosong');
       }
-        return view('laporan',$data);
+        return view('laporan',$this->data);
     }
 
     public function ekspor_excel(){
 
     }
     public function ekspor_pdf(){
+      //ambil tanggal awal
+      $tanggalawal = '2021-01-01';
+      //ambil tanggal akhir
+      $tanggalakhir = '2021-01-20';
+      //cek jika tanggal terisi
+      if(!empty($tanggalawal) && !empty($tanggalakhir)){
+        $laporan = $this->pengajuan_model->cari_laporan($tanggalawal,$tanggalakhir);
+          $this->data = [
+          'judul'             =>  'Rekapitulasi Permintaan Bantuan Fasilitas Video Conference',
+          //kirim data tabel laporan
+          'laporan'           =>  $laporan,
+          'pager'             =>  null,
+          'halaman_sekarang'  =>  1
+          ];
+      }
+
+      $tabellaporan= view('tabellaporan');
       $dompdf = new Dompdf();
-      $dompdf->loadHtml('Hello World');
+      $dompdf->loadHtml($tabellaporan,$this->data);
 
       // (Optional) Setup the paper size and orientation
       $dompdf->setPaper('A4', 'landscape');

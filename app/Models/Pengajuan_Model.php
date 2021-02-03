@@ -16,6 +16,12 @@ class Pengajuan_Model extends Model{
         ->orLike('perihal',$katakunci)->orLike('keterangan',$katakunci)->orLike('tempat',$katakunci)->
         groupEnd();
     }
+
+    public function cari_laporan($tanggalawal,$tanggalakhir){
+        $laporan = $this->table('vidcon')->where('DATE(created_at) >=', $tanggalawal)
+        ->where('DATE(created_at) <=', $tanggalakhir)->orderBy('created_at','asc');
+        return $laporan;
+    }
 }
 
 ?>
