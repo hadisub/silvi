@@ -53,25 +53,24 @@ class Laporan extends BaseController{
 
     }
     public function ekspor_pdf(){
-      //ambil tanggal awal
-      $tanggalawal = '2021-01-01';
-      //ambil tanggal akhir
-      $tanggalakhir = '2021-01-20';
+      $tanggalawal = $this->request->getVar('tanggalawal');
+      $tanggalakhir = $this->request->getVar('tanggalakhir');
       //cek jika tanggal terisi
       if(!empty($tanggalawal) && !empty($tanggalakhir)){
         $laporan = $this->pengajuan_model->cari_laporan($tanggalawal,$tanggalakhir);
           $this->data = [
           'judul'             =>  'Rekapitulasi Permintaan Bantuan Fasilitas Video Conference',
           //kirim data tabel laporan
-          'laporan'           =>  $laporan,
+          'laporan'           =>  $laporan->asArray()->findAll(),
           'pager'             =>  null,
-          'halaman_sekarang'  =>  1
+          'halaman_sekarang'  =>  1,
+          'tanggalawal'       =>  date("d-m-Y", strtotime($tanggalawal)),
+          'tanggalakhir'      =>  date("d-m-Y", strtotime($tanggalakhir))
           ];
       }
-
-      $tabellaporan= view('tabellaporan');
-      $dompdf = new Dompdf();
-      $dompdf->loadHtml($tabellaporan,$this->data);
+      $tabellaporan= view('tabellaporan',$this->data);
+      $dompdf = new Dompdf(['isHtml5ParserEnabled'=>true]);
+      $dompdf->loadHtml($tabellaporan);
 
       // (Optional) Setup the paper size and orientation
       $dompdf->setPaper('A4', 'landscape');
@@ -80,7 +79,7 @@ class Laporan extends BaseController{
       $dompdf->render();
 
       // Output the generated PDF to Browser
-      $dompdf->stream();
+      $dompdf->stream("laporan_vidcon.pdf");
     }
 
 }

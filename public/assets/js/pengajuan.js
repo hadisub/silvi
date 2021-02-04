@@ -82,3 +82,14 @@ if(tanggalawal>tanggalakhir){
 	return false;
 }
 });
+
+$(document).on('click',"#cetak_pdf",function(e){
+//ambil tanggal awal dan tanggal akhir
+var tanggalawal = $("#tanggalawal").val();
+var tanggalakhir = $("#tanggalakhir").val();
+
+if (tanggalawal.length < 1 || tanggalakhir.length < 1) {
+	alert("Tanggal awal dan tanggal akhir harus diisi");
+	return false;
+}
+});
