@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="col-6 mb-3 my-auto text-right">
                                     <a class="btn btn-danger" id="cetak_pdf" name="cetak_pdf" href="<?= site_url('laporan/ekspor_pdf') ?>?<?= $_SERVER['QUERY_STRING'] ?>">Ekspor PDF<i class="fa fa-file-pdf ml-2"></i></a>
-                                    <a class="btn btn-success" id="cetak_excel" name="cetak_excel" href="<?= site_url('laporan/ekspor_excel') ?>">Ekspor Excel<i class="fa fa-file-excel ml-2"></i></a>
+                                    <a class="btn btn-success" id="cetak_excel" name="cetak_excel" href="<?= site_url('laporan/ekspor_excel') ?>?<?= $_SERVER['QUERY_STRING'] ?>">Ekspor Excel<i class="fa fa-file-excel ml-2"></i></a>
                                 </div>
                             </div>
                                 <div class="table-responsive">
