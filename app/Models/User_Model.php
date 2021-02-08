@@ -3,9 +3,19 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 class User_Model extends Model{
-    public function login($nama,$password){
+    protected $table = 'user';
+    protected $primaryKey = 'iduser';
+    protected $allowedFields = ['username','password','nama'];
+    
+    public function login($username,$password){
         return $this->db->table('user')
-        ->where(array('nama'=>$nama,'password'=>md5($password)))
+        ->where(array('username'=>$username,'password'=>md5($password)))
+        ->get()->getRowArray();
+    }
+
+    public function ambil_user($id){
+    	return $this->db->table('user')
+        ->where(array('iduser'=>$id))
         ->get()->getRowArray();
     }
 }

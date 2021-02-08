@@ -19,8 +19,8 @@
                                         echo '</div>'; }
                                         ?>
                                             <div class="form-group">
-                                                <label class="small mb-1" for="nama">Nama Pengguna:</label>
-                                                <input class="form-control py-4" id="nama" name="nama" type="text" placeholder="Masukkan nama pengguna" />
+                                                <label class="small mb-1" for="username">Username:</label>
+                                                <input class="form-control py-4" id="username" name="username" type="text" placeholder="Masukkan nama pengguna" />
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="password">Kata Sandi:</label>

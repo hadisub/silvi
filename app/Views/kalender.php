@@ -10,6 +10,10 @@
                             <li class="breadcrumb-item">Kalender Kegiatan Vidcon</li>
                         </ol>
                     </div>
+                    <div class="container-fluid">
+                		<!-- THE CALENDAR -->
+                			<div id="calendar"></div>
+              			</div>
                 </main>
 
 <?= $this->include('layout/footeradmin') ?>

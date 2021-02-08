@@ -8,7 +8,7 @@
                                 Beranda
                             </a>
                             <div class="sb-sidenav-menu-heading">Pengajuan</div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
                                 Daftar Pengajuan
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -24,7 +24,7 @@
                             <div class="sb-sidenav-menu-heading">Event</div>
                             <a class="nav-link" href="<?= base_url('kalender') ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
-                                Kalender Vidcon
+                                Kalender Vidcon<span class="right badge badge-primary ml-2">Beta</span>
                             </a>
                             <div class="sb-sidenav-menu-heading">Laporan</div>
                             <a class="nav-link" href="<?= base_url('laporan') ?>">
@@ -32,7 +32,7 @@
                                 Cetak Laporan
                             </a>
                             <div class="sb-sidenav-menu-heading"></div>
-                            <a class="nav-link" data-toggle="modal" href="#" data-target="#modalabout">
+                            <a class="nav-link" data-toggle="modal" href="javascript:void(0);" data-target="#modalabout">
                                 <div class="sb-nav-link-icon"><i class="fas fa-info"></i></div>
                                 Tentang SILVI
                             </a>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Anda masuk sebagai:</div>
-                        Administrator
+                        <?= session()->get('nama') ?>
                     </div>
                 </nav>
             </div>

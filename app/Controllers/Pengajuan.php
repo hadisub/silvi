@@ -159,6 +159,10 @@ class Pengajuan extends BaseController{
     }
 
     public function hapuspengajuan($id,$jenistabel){
+      //cari gambar
+      $filesurat = $this->pengajuan_model->find($id);
+      //hapus gambar
+      unlink('assets/img/'.$filesurat['filesurat']);
       $hapus=$this->pengajuan_model->delete($id);
       if($hapus){
         session()->setFlashData('sukses', 'Pengajuan telah dihapus');

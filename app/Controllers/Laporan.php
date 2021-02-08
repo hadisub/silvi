@@ -81,6 +81,8 @@ class Laporan extends BaseController{
          
       $spreadsheet->getActiveSheet()
               ->mergeCells("A3:G3");
+      $spreadsheet->getActiveSheet()->getStyle('A3')
+              ->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
       //style header
       $header = [

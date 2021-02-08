@@ -13,7 +13,7 @@
                                         <h6 class="text-center font-weight-light">Silahkan isi form berikut untuk mengajukan bantuan fasilitas video conference dari Dinas Kominfo Kabupaten Kediri</h6>
                                     </div>
                                     <div class="card-body">
-                                        <form id="formpengajuan" action="<?= base_url('pengajuan/kirimpengajuan') ?>" method="POST" enctype="multipart/form-data">
+                                        <form id="formpengajuan" action="<?= site_url('pengajuan/kirimpengajuan') ?>" method="POST" enctype="multipart/form-data">
                                         <?= csrf_field() ?>
                                             <!-- form -->
                                             <div class="form-group">
