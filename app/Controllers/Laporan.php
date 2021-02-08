@@ -3,9 +3,7 @@ namespace App\Controllers;
 use App\Models\Pengajuan_Model;
 use Dompdf\Dompdf;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Style\Alignment;
-use PhpOffice\PhpSpreadsheet\Style\Fill;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Laporan extends BaseController{
 	protected $pengajuan_model;
@@ -57,30 +55,123 @@ class Laporan extends BaseController{
       $tanggalawal = $this->request->getVar('tanggalawal');
       $tanggalakhir = $this->request->getVar('tanggalakhir');
       $spreadsheet = new spreadsheet();
-         $spreadsheet->setActiveSheetIndex(0)
-                ->setCellValue('A1', 'No.')
-                ->setCellValue('B1', 'No. Surat')
-                ->setCellValue('C1', 'Tgl. Diajukan')
-                ->setCellValue('D1', 'Asal Surat')
-                ->setCellValue('E1', 'Perihal')
-                ->setCellValue('F1', 'Tempat')
-                ->setCellValue('G1', 'Keterangan');
-        $laporan = $this->pengajuan_model->cari_laporan($tanggalawal,$tanggalakhir)->asArray()->findAll();
+      $spreadsheet->getDefaultStyle()
+      ->getFont()
+      ->setName('Arial')
+      ->setSize(11);
 
-        $column=2;
-        $no=1;
-        foreach($laporan as $data) {
-          $spreadsheet->setActiveSheetIndex(0)
-            ->setCellValue('A' . $column, $no)
-            ->setCellValue('B' . $column, $data['nomorsurat'])
-            ->setCellValue('C' . $column, $data['created_at'])
-            ->setCellValue('D' . $column, $data['namalembaga'])
-            ->setCellValue('E' . $column, $data['perihal'])
-            ->setCellValue('F' . $column, $data['tempat'])
-            ->setCellValue('G' . $column, $data['keterangan']);
-        $column++;
-        $no++;
+      //style judul
+      $spreadsheet->getActiveSheet()
+              ->setCellValue('A1', "Rekapitulasi Permintaan Bantuan Video Conference");
+         
+      $spreadsheet->getActiveSheet()
+              ->mergeCells("A1:G1");
+         
+      $spreadsheet->getActiveSheet()
+              ->getStyle('A1')
+              ->getFont()
+              ->setSize(20);
+
+      $spreadsheet->getActiveSheet()->getStyle('A1')
+              ->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+      $spreadsheet->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);
+
+      $spreadsheet->getActiveSheet()
+              ->setCellValue('A3', 'Tanggal '.date("d-m-Y", strtotime($tanggalawal)).' s.d. '.date("d-m-Y", strtotime($tanggalakhir)).'');
+         
+      $spreadsheet->getActiveSheet()
+              ->mergeCells("A3:G3");
+
+      //style header
+      $header = [
+        'font' => [
+          'color' => [
+            'rgb' => '000000'
+          ],
+          'bold'=>true,
+          'size'=>11
+        ],
+        'fill'=>[
+          'fillType' =>  \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+          'startColor' => [
+            'rgb' => 'D4D4D4'
+          ]
+        ],
+        'alignment'=>[
+          'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
+        ]
+       
+      ];  
+
+      $spreadsheet->getActiveSheet()
+            ->getColumnDimension('A')
+            ->setWidth(4);
+      $spreadsheet->getActiveSheet()
+            ->getColumnDimension('B')
+            ->setWidth(21);
+      $spreadsheet->getActiveSheet()
+            ->getColumnDimension('C')
+            ->setWidth(12);
+      $spreadsheet->getActiveSheet()
+            ->getColumnDimension('D')
+            ->setWidth(27);
+      $spreadsheet->getActiveSheet()
+            ->getColumnDimension('E')
+            ->setWidth(32);
+      $spreadsheet->getActiveSheet()
+      ->getColumnDimension('F')
+      ->setWidth(20);
+      $spreadsheet->getActiveSheet()
+      ->getColumnDimension('G')
+      ->setWidth(34);
+
+      $spreadsheet->setActiveSheetIndex(0)
+                ->setCellValue('A4', 'No.')
+                ->setCellValue('B4', 'No. Surat')
+                ->setCellValue('C4', 'Tgl. Diajukan')
+                ->setCellValue('D4', 'Asal Surat')
+                ->setCellValue('E4', 'Perihal')
+                ->setCellValue('F4', 'Tempat')
+                ->setCellValue('G4', 'Keterangan');
+
+      $spreadsheet->getActiveSheet()
+      ->getStyle('A4:G4')
+      ->applyFromArray($header);
+
+      //isi tabel
+      $laporan = $this->pengajuan_model->cari_laporan($tanggalawal,$tanggalakhir)->asArray()->findAll();
+
+      $column=5;
+      $no=1;
+      foreach($laporan as $data) {
+        $spreadsheet->setActiveSheetIndex(0)
+          ->setCellValue('A' . $column, $no)
+          ->setCellValue('B' . $column, $data['nomorsurat'])
+          ->setCellValue('C' . $column, date("d-m-Y", strtotime($data['created_at'])))
+          ->setCellValue('D' . $column, $data['namalembaga'])
+          ->setCellValue('E' . $column, $data['perihal'])
+          ->setCellValue('F' . $column, $data['tempat'])
+          ->setCellValue('G' . $column, $data['keterangan']);
+      $column++;
+      $no++;
     }
+
+    $isitabel = [
+    'borders' => [
+        'allBorders' => [
+            'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+            'color' => ['rgb' => 'FF000000']
+        ]
+      ],
+      'alignment' => [
+        'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+        'wrapText' => true
+        ]
+      ];
+
+    //atur template isi tabel
+    $spreadsheet->getActiveSheet()->getStyle('A4:G'.($column-1).'')->applyFromArray($isitabel);
+
     // tulis dalam format .xlsx
     $writer = new Xlsx($spreadsheet);
     $fileName = 'laporan_vidcon';
@@ -114,7 +205,7 @@ class Laporan extends BaseController{
       $dompdf->loadHtml($tabellaporan);
 
       // (Optional) Setup the paper size and orientation
-      $dompdf->setPaper('A4', 'landscape');
+      $dompdf->setPaper('folio', 'landscape');
 
       // Render the HTML as PDF
       $dompdf->render();
