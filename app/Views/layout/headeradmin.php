@@ -10,7 +10,7 @@
         <title><?= $judul?></title>
         <link rel="shortcut icon" href="../assets/img/silvi.ico" type="image/x-icon" />
         <link href="../assets/css/styles.css" rel="stylesheet" />
-        <link href="../assets/css/calendar.css" rel="stylesheet" />
+        <link href="../assets/css/fullcalendar.min.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">

@@ -11,9 +11,15 @@
                         </ol>
                     </div>
                     <div class="container-fluid">
-                		<!-- THE CALENDAR -->
-                			<div id="calendar"></div>
-              			</div>
+                    	<div class="card">
+                    		<div class="card">
+                    			<div class="card-body">
+                    				<!-- THE CALENDAR -->
+                					<div id="calendar"></div>
+                    			</div>
+                    		</div>
+                    	</div>
+              		</div>
                 </main>
 
 <?= $this->include('layout/footeradmin') ?>
