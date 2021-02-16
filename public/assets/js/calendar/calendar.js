@@ -3,6 +3,14 @@ document.addEventListener('DOMContentLoaded', function() {
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
     locale: 'id',
+    eventDidMount: function(info) {
+        $(info.el).tooltip({ 
+		    title: info.event.extendedProps.description,
+		    placement: "top",
+		    trigger: "hover",
+		    container: "body"
+	  	});
+	},
     events: 'kalender/eventkalender'
   });
 

@@ -280,17 +280,13 @@
   </div>
 </div>
 
-
-
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../assets/js/calendar/fullcalendar.min.js"></script>
+        <script src='https://unpkg.com/popper.js/dist/umd/popper.min.js'></script>
+        <script src="../assets/js/calendar/calendar.js"></script>
+        <script src="../assets/js/calendar/local.js"></script>
         <script src="../assets/js/sidebar.js"></script>
         <script src="../assets/js/pengajuan.js"></script>
-        <script>
-          //aktivasi tooltip
-          $(document).ready(function(){
-          $('[data-tooltip="tooltip"]').tooltip();
-          });
-        </script>
     </body>
 </html>

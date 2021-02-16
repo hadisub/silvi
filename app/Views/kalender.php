@@ -22,4 +22,4 @@
               		</div>
                 </main>
 
-<?= $this->include('layout/footeradmin') ?>
+<?= $this->include('layout/footerkalender') ?>
